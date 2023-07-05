@@ -28,9 +28,7 @@ while True:
             break    
         print('SAQUE')
         print(f'Saldo atual R${saldo:.2f}')
-        valor_saque = int(input('Digite o valor que deseja retirar: R$ '))
-        numero_saques += 1
-        extrato += f'SAÍDA <= Saque R${valor_saque:.2f}\n'
+        valor_saque = int(input('Digite o valor que deseja retirar: R$ '))        
         if saldo < valor_saque:
             print('Saldo insulficiente!')
         elif valor_saque > 500:
@@ -38,6 +36,8 @@ while True:
         else:
             print(f'Saque de R${valor_saque:.2f} realizado com sucesso!')
             saldo -= valor_saque
+            numero_saques += 1
+            extrato += f'SAÍDA <= Saque R${valor_saque:.2f}\n'
      
     elif option =='E':
         if extrato == '':
