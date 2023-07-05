@@ -9,7 +9,8 @@ MENU DE OPÇÕES:
 =======================
 SELECIONE A OPÇÃO DESEJADA: '''
 
-saldo = numero_saques = valor_saque= deposito = 0
+saldo = numero_saques = valor_saque = deposito = 0
+extrato = ''
  
 while True:
     option = input(menu).upper().split()[0]
@@ -18,6 +19,7 @@ while True:
         print('DEPOSITO')
         deposito = int(input('Valor a ser depositado: R$'))
         saldo += deposito
+        extrato += f'ENTRADA => Deposito R${deposito:.2f}\n'
         print(f'Saldo atual R${saldo:.2f}')
     
     elif option == 'S':
@@ -28,6 +30,7 @@ while True:
         print(f'Saldo atual R${saldo:.2f}')
         valor_saque = int(input('Digite o valor que deseja retirar: R$ '))
         numero_saques += 1
+        extrato += f'SAÍDA <= Saque R${valor_saque:.2f}\n'
         if saldo < valor_saque:
             print('Saldo insulficiente!')
         elif valor_saque > 500:
@@ -37,12 +40,14 @@ while True:
             saldo -= valor_saque
      
     elif option =='E':
+        if extrato == '':
+            print('Não foram realizadas movimentações.')
+        print('EXTRATO:')
+        print(extrato)
         print(f'Saldo atual R${saldo:.2f}')
+        
 
     elif option == 'F':
         print('Finalizando...')
         break       
             
-        
-                
-    
